@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.18)  10 SEP 2024 19:46
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.18)  17 SEP 2024 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Desktop/CUPDG/CUPDG
-(d:/Desktop/CUPDG/CUPDG.tex
+**d:/磁贴/工作区/CUP/CUPDG/CUPDG
+(d:/磁贴/工作区/CUP/CUPDG/CUPDG.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (d:/texlive/2023/texmf-dist/tex/latex/ctex/ctexart.cls (d:/texlive/2023/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
 File: ctexbackend.cfg 2022/07/14 v2.5.10 Backend configuration file (CTEX)
@@ -1114,7 +1114,7 @@ Package fontspec Info: Font family 'STXinwei(0)' created for font 'STXinwei'
 ] [2]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 203.
+(hyperref)                be the same. Added a new anchor on input line 215.
 
 File: pics/校内/炒鸡.jpg Graphic file (type bmp)
 <pics/校内/炒鸡.jpg>
@@ -1130,7 +1130,7 @@ File: pics/校内/国际饭店.jpg Graphic file (type bmp)
  [6] [7]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 301.
+(hyperref)                be the same. Added a new anchor on input line 313.
 
 File: pics/校外/南校/高原.png Graphic file (type bmp)
 <pics/校外/南校/高原.png>
@@ -1146,7 +1146,7 @@ File: pics/校外/南校/水萝卜.png Graphic file (type bmp)
  [9] [10]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 354.
+(hyperref)                be the same. Added a new anchor on input line 366.
 
 File: pics/校外/清秀园/川菜馆.png Graphic file (type bmp)
 <pics/校外/清秀园/川菜馆.png>
@@ -1163,7 +1163,7 @@ File: pics/校外/清秀园/尝到家尝.png Graphic file (type bmp)
  [13] [14]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 403.
+(hyperref)                be the same. Added a new anchor on input line 415.
 
 File: pics/校外/润杰/川渝小厨.png Graphic file (type bmp)
 <pics/校外/润杰/川渝小厨.png>
@@ -1172,7 +1172,7 @@ File: pics/校外/润杰/哈尔滨麻辣烫.png Graphic file (type bmp)
 [15]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 427.
+(hyperref)                be the same. Added a new anchor on input line 439.
 
 File: pics/校外/阳光商厦/好伦哥.png Graphic file (type bmp)
 <pics/校外/阳光商厦/好伦哥.png>
@@ -1197,7 +1197,7 @@ File: pics/校外/阳光商厦/王婆大虾.png Graphic file (type bmp)
  [20]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 498.
+(hyperref)                be the same. Added a new anchor on input line 510.
 
 File: pics/校外/东校/螺狮粉.png Graphic file (type bmp)
 <pics/校外/东校/螺狮粉.png>
@@ -1220,7 +1220,7 @@ File: pics/校外/悦荟/悦荟.png Graphic file (type bmp)
  [25] [26]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 602.
+(hyperref)                be the same. Added a new anchor on input line 618.
 
 File: pics/校外/政法/山葵村.png Graphic file (type bmp)
 <pics/校外/政法/山葵村.png>
@@ -1242,7 +1242,7 @@ File: pics/校外/政法/串串香.png Graphic file (type bmp)
 [29] [30]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 665.
+(hyperref)                be the same. Added a new anchor on input line 681.
 
 File: pics/校外/更远/晋永信.png Graphic file (type bmp)
 <pics/校外/更远/晋永信.png>
@@ -1277,15 +1277,15 @@ File: pics/校外/更远/车轮饼.png Graphic file (type bmp)
 enddocument/afterlastpage: lastpage setting LastPage.
 (./CUPDG.aux)
 Package rerunfilecheck Info: File `CUPDG.out' has not changed.
-(rerunfilecheck)             Checksum: 1A27E582F176E4F25D45AD67A02B72BA;10199.
+(rerunfilecheck)             Checksum: FF4B34959FC8EE0E25E8BC7CFF94D9B8;10357.
  ) 
 Here is how much of TeX's memory you used:
- 31135 strings out of 476683
- 677394 string characters out of 5807575
- 1864012 words of memory out of 5000000
- 50745 multiletter control sequences out of 15000+600000
- 518583 words of font info for 129 fonts, out of 8000000 for 9000
+ 31132 strings out of 476683
+ 677329 string characters out of 5807575
+ 1863012 words of memory out of 5000000
+ 50743 multiletter control sequences out of 15000+600000
+ 518575 words of font info for 128 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 100i,12n,104p,1222b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,12n,104p,1225b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on CUPDG.pdf (41 pages).
