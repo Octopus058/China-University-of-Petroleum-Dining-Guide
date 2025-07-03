@@ -12,7 +12,9 @@
 
 % 设置页面
 \usepackage{geometry}
+\usepackage[normalem]{ulem}
 \usepackage{tabularx}
+\renewcommand\tabularxcolumn[1]{m{#1}}
 \usepackage{array}
 \usepackage{float}
 \usepackage{wrapfig}
@@ -101,12 +103,15 @@
 	emphstyle=\color{CPPViolet}, 
 }
 
-% 绘制页面边框
+\newgeometry{top=3cm, left=3.5cm, right=3.5cm}
 \usepackage{everypage}
-\AddEverypageHook{
+\AddEverypageHook{%
   \begin{tikzpicture}[remember picture, overlay]
-    \draw[thick] ([xshift=0.5cm, yshift=0.5cm]current page.south west) rectangle ([xshift=-0.5cm, yshift=-0.5cm]current page.north east);
-  \end{tikzpicture}
+    \draw[thick]
+      ([xshift=0.5cm, yshift=0.5cm]current page.south west)
+      rectangle
+      ([xshift=-0.5cm, yshift=-0.5cm]current page.north east);
+  \end{tikzpicture}%
 }
 
 % 设置自定义字体
@@ -126,10 +131,10 @@
     \fontsize{26}{31.2}\selectfont{中国石油大学（北京）吃饭指北}\par % 主标题
     \fontsize{18}{21.6}\selectfont{China University of Petroleum Dining Guide \customfont (CUPDG)}\par % 英文标题
     \vspace{39pt}
-    \fontsize{22}{26.4}\selectfont{\haettenfont v5. 0. 3\normalfont }\par % 版本
+    \fontsize{22}{26.4}\selectfont{\haettenfont v5. 4\normalfont }\par % 版本
     \vspace{52.8pt}
     \fontsize{18}{21.6}\selectfont{作者：刈夫和石大的同学们}\par % 作者
-    \fontsize{18}{21.6}\selectfont{最后编辑时间：2025年3月17日}\par % 最后编辑时间
+    \fontsize{18}{21.6}\selectfont{最后编辑时间：2025年7月3日}\par % 最后编辑时间
     \vfill
 \end{titlepage}
 
@@ -233,23 +238,22 @@
 
 二楼夹馍，菜的4块肉的8块，想吃点清淡的时候可以考虑。
 
-三楼和四楼麻辣香锅，放在一起讲。三楼通常更咸，四楼偶尔可能不太卫生。\textbf{（提供者：GF）}昌平最便宜的麻辣香锅没有之一。不能吃辣的同学建议微辣，能吃辣的同学建议特辣（也不是特别辣）。作者的吃法是方便面加一碗米饭，直接放一起吃，同学们可以参考一下。
+三楼和四楼麻辣香锅，放在一起讲。三楼通常更咸（实际上是四楼根本一点味没有），四楼偶尔\textbf{可能不太卫生}。\textbf{（提供者：GF）}昌平最便宜的麻辣香锅没有之一。不能吃辣的同学建议微辣，能吃辣的同学建议特辣（也不是特别辣）。作者的吃法是方便面加一碗米饭，直接放一起吃，同学们可以参考一下。
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.63\textwidth]{pics/校内/炒鸡.jpg}
 	\caption{香辣炒鸡yyds} 
 \end{figure}
-四楼烤鱼，多人食堂聚餐首选，作者的建议是3人吃2条鱼比较合适，2人1条可能有点少，另外就是除了烤鱼也可以烤鸡腿之类的，体验都还不错。
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.63\textwidth]{pics/校内/卷饼.jpg}
 	\caption{这是一个，不是两个} 
 \end{figure}
-四楼9/7块卷饼，体验和二楼夹馍差不多，但是够大，性价比挺高，有时候吃一个就饱了。
+四楼9/7块卷饼，体验和二楼夹馍差不多，但是够大，性价比挺高，就碗黑米粥爽到飞起。
 
-四楼米线，作为禾苑后时代的遗留产物，价格有点高，米线就和当年的面一样煮的大劲，一模一样的风格，看个人习惯。但无论如何，禾苑永远活在我们心中。
+四楼米线，作为禾苑后时代的遗留产物，米线就和当年的面一样煮的大劲，一模一样的风格，看个人习惯。但无论如何，禾苑永远是神，永远活在我们心中。
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.63\textwidth]{pics/校内/米线.jpg}
@@ -266,11 +270,7 @@
 \addcontentsline{toc}{subsection}{2.4 \ 禾苑}
 \fontsize{14pt}{16.8pt}\selectfont
 \setlength{\parindent}{2em} % 设置首行缩进为2字符
-禾苑在经过一次脱胎换骨后成功损失了它的灵魂也就是面，作者对此感到万分悲痛。但是生活还是要继续，经过实地调查，作者重新挖掘出了禾苑的意义。对于一个人吃饭来说，现在大致可分为两种吃法，一种是盖饭，一种是小炒加一碗米饭，但是不少同学会觉得盖饭量少，六七分饱总差点意思。作者研究的结果是，盖饭可以加菜，有加3块和加5块两种，3块完全足矣，5块就太多了，然后过会再要一小碗饭即可（注意是小碗）。这样就可以从六分饱变成正好。
-
-另外，千万避雷黑椒牛柳的小炒（大概叫这个），青椒洋葱远多于牛肉并且总量也很少。
-
-最后的最后，如果有找到禾苑小面的同学请及时联系作者。米线目前已经发现，在一餐四楼。
+禾苑在经过一次脱胎换骨后成功损失了它的灵魂也就是面，且现在做的非常难吃，作者已发誓再也不去禾苑。
 
 \textbf{\subsection*{五、KFC}}
 \addcontentsline{toc}{subsection}{2.5 \ KFC}
@@ -295,17 +295,17 @@
 	\includegraphics[width=0.73\textwidth]{pics/校内/国际饭店.jpg}
 \end{figure}
 
-\textbf{\subsection*{八、石大夜市（提供者：橘皮）}}
+\textbf{\subsection*{八、石大夜市}}
 \addcontentsline{toc}{subsection}{2.8 \ 石大夜市}
 \fontsize{14pt}{16.8pt}\selectfont
 \setlength{\parindent}{2em} % 设置首行缩进为2字符
-别问，问就是据说禾苑的小面去夜市了。我来夜市只办三件事，小面，小面，还是TMD小面！其他的？不熟！
+别问，问就是开的时间飘忽不定，导致作者每次都没去过，期待补全......
 
 \textbf{\subsection*{九、润杰食堂}}
 \addcontentsline{toc}{subsection}{2.9 \ 润杰食堂}
 \fontsize{14pt}{16.8pt}\selectfont
 \setlength{\parindent}{2em} % 设置首行缩进为2字符
-我吃的明明是炒饭，为什么却像坐在针毡上一样。我的手在抖，我的汗在流，舌头都咬出血了。此时此刻我真的破防了，破大防了，你滴的每一滴油都与我的心脏针锋相对。几乎都快羡慕得疯了，倒在床上蒙住被子就开始抱着枕头尖叫流泪，嘴里一边喊着救命救命，一边又忍着，我边发边哭，打字的手都是抖的，后来我的手抖得越来越厉害，从心头涌起的思想、情怀和梦想，这份歆羡和悔恨交织在一起，我的笑还挂在脸上，可是眼泪一下子就掉下来了。求你了别吃了，我生活再苦再难我都不会觉得难过，只有你们吃这盘炒饭的时候我的心里像被刀割一样的痛，打着字泪水就忍不住的往下流。我打开了手机，我看到你吃的炒饭，我感到了深深的差距，我卸载删除了一切社交软件，我拔了手机卡，我把自己蒙在被窝里一动不动，我耳边还是不停环绕你发的那些幸福生活，我直接跳进了家门口的井里。
+新的润杰食堂作者没去过，但听同学说和现在的禾苑一样烂，好吧，呵呵......
 
 \newpage
 \titleformat{\section}[block]{\normalfont\Large\bfseries\centering}{}{0pt}{}
@@ -378,23 +378,18 @@
 清秀园小区相对来说是一个偏僻的位置（知道的人不多），这里面藏着几个非常不错的店，完全值得吃四年那种。
 
 \textbf{\subsubsection*{1. 川菜馆}}
-\addcontentsline{toc}{subsubsection}{3.2.1 \ 川菜馆}
+\addcontentsline{toc}{subsubsection}{3.2.1 \ 美味川菜馆}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/川菜馆.png}
 \end{figure}
 “求你让我再去一次川菜馆吧，我什么都会做的！”作者如是说道。在去川菜馆之前，要对自己的饭量有一个清楚的认识，不然很容易出现吃不完的情况。如果你是和同学去，我的建议是几个人就点几个菜。如果你是一个人去，建议点盖饭（量也很大）。建议做好剩菜的心理准备。另外，一定定定要点外婆菜炒鸡蛋，我觉得这道菜是完全可以看作镇店之宝的含金量。
 
-\textbf{\subsubsection*{2. 烧饼店}}
-\addcontentsline{toc}{subsubsection}{3.2.2 \ 烧饼店}
-这家烧饼店老板娘一般看心情做啥种类的，价格比较便宜，很适合当懒得下馆子的时候随便吃两口的垫背。如果你运气好碰到有葱花烧饼的日子，无脑买就完事了。
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/烧饼.png}
-\end{figure}
+川菜馆在5月关了整整24天，导致作者一度不知道吃什么，整天泡在山西面馆和高原里愁容满面，打开美团看川菜馆开没开门。作者的同学评论道：川菜馆应该改名叫媚胃而不是美味。
 
-\textbf{\subsubsection*{3. 啤酒超市}}
-\addcontentsline{toc}{subsubsection}{3.2.3 \ 啤酒超市}
+
+\textbf{\subsubsection*{2. 啤酒超市}}
+\addcontentsline{toc}{subsubsection}{3.2.2 \ 啤酒超市}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/酒店.png}
@@ -403,20 +398,20 @@
 
 \textbf{注：买完酒去川菜馆吃饭的时候喝100\%会感觉很撑，别问我为什么，问就是每次我都是这样，很奇怪。}
 
-\textbf{\subsubsection*{4. 砂锅牛肉面}}
-\addcontentsline{toc}{subsubsection}{3.2.4 \ 砂锅牛肉面}
+\textbf{\subsubsection*{3. 砂锅牛肉面}}
+\addcontentsline{toc}{subsubsection}{3.2.3 \ 砂锅牛肉面}
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/砂锅面.png}
+	\includegraphics[width=0.75\textwidth]{pics/校外/清秀园/砂锅面.png}
 \end{figure}
 这家可能是作者在学校附近找到的唯一一家砂锅牛肉面，确实好吃，店面一直开到晚上十点。要注意的是，砂锅刚上来的时候特别烫，建议先放10分钟再吃，不然嘴被烫伤问题就大了。
 
-\textbf{\subsubsection*{5. 尝到家尝（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.2.5 \ 尝到家尝}
+\textbf{\subsubsection*{4. 尝到家尝（提供者：Silenchatter）}}
+\addcontentsline{toc}{subsubsection}{3.2.4 \ 尝到家尝}
 北平人家旗下北京菜系，经典菜鱼头泡饼可食（最好多几个人）。他们家也是附近为数不多可以点豆汁的店，请挑战自己。
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/尝到家尝.png}
+	\includegraphics[width=0.75\textwidth]{pics/校外/清秀园/尝到家尝.png}
 \end{figure}
 
 \newpage
@@ -434,7 +429,7 @@
 \end{figure}
 川渝小厨作为传说中的你校校外食堂广受好评，单人前往的时候有可以不限量添饭的各式盖饭，三两好友相聚的时候也可以点上几个炒菜。价格相当的亲民，一般情况下平均每顿饭20-30，这个价位就能吃饱了。说是川菜但是实际上并没有很辣，口味改良过，受众还是比较广的。推荐菜：水煮肉片，铁板日本豆腐，干锅土豆片。
 
-\textbf{\subsubsection*{2. 山西面馆}}
+\textbf{\subsubsection*{2. 山西面馆（提供者：tractorchicken）}}
 \addcontentsline{toc}{subsubsection}{3.3.2 \ 山西面馆}
 \begin{figure}[ht]
 	\centering
@@ -848,15 +843,17 @@
 
 \textit{Aurora}
 
+\textit{tractorchicken}
+
 \vspace{16.8pt}
 感谢同学们的支持，也欢迎大家将指北宣传出去，让更多人知道；同时提供更多信息，让这份指北更加完善。没有你们就没有这份指北，谢谢！
 \vspace{16.8pt}
 \begin{flushright}
 	\xw{刈夫}
 	
-	2025年3月17日
+	2025年7月3日
 
-	更新于第5版
+	更新于v5.4
 \end{flushright}
 
 \newpage
@@ -865,26 +862,32 @@
 	\section{更新日志}
 \end{center}
 
-\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}m{3cm}|X|}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}m{2cm}
+                            |>{\centering\arraybackslash}m{3cm}
+                            |>{\raggedright\arraybackslash}X|}
     \hline
-    \textbf{日期} & \multicolumn{1}{c|}{\textbf{更新内容}} \\ % 让“更新内容”居中
+    \textbf{版本} & \textbf{日期} & \multicolumn{1}{c|}{\textbf{更新内容}} \\ 
     \hline
-    2024.8.31 & v1.0.0：完成word版初步编写 \\ 
+    v1.0   & 2024.8.31 & 完成 word 版初步编写 \\ 
     \hline
-    2024.8.31 & v2.0.0：基本完善校内内容，新增6条3.1-3.5内容 \\ 
+    v2.0   & 2024.8.31 & 基本完善校内内容；新增 6 条 3.1–3.5 内容 \\ 
     \hline
-    2024.9.1  & v3.0.0：\textbf{第一次重大更新} \ Latex重写排版，新增3.6悦荟 \\ 
+    v3.0   & 2024.9.1  & \textbf{第一次重大更新} Latex 重写排版；新增 3.6 悦荟 \\ 
     \hline
-    2024.9.4  & v4.0.0：\textbf{第二次重大更新} \ 更换封面学校图标。删除原3.5.2胡辣汤，修正汉堡王配图错误，修正达美乐写成好利来错误，修正禾苑，KFC歧义。新增一餐内容，新增28条校外内容。修改全文字体，页面样式，附录内容。\\ 
+    v4.0   & 2024.9.4  & \textbf{第二次重大更新} 更换封面学校图标；删除原 3.5.2 胡辣汤；修正汉堡王配图错误；修正达美乐写成好利来错误；修正禾苑、KFC 歧义；新增一餐内容；新增 28 条校外内容；修改全文字体、页面样式、附录内容。 \\ 
     \hline
-    2024.9.10  & v5.0.0：增加目录超链接，页面边框，更换花体页眉，更换部分字体，新增序言 \\ 
+    v5.0   & 2024.9.10 & 增加目录超链接，页面边框；更换花体页眉、部分字体；新增序言 \\ 
     \hline
-	2024.9.17  & v5.0.1：新增3.6.7。将项目上传至github，实现开源 \\ 
+    v5.1   & 2024.9.17 & 新增 3.6.7；将项目上传至 GitHub，实现开源 \\ 
     \hline
-	2024.12.5 & v5.0.2：新增3.8.13，3.8.14。 \\ 
-	\hline
-	2025.3.17 & v5.0.3：新增3.8.15，删除石锅鱼。 \\
-	\hline
+    v5.2   & 2024.12.5 & 新增 3.8.13、3.8.14 \\ 
+    \hline
+    v5.3   & 2025.5.17 & 新增 3.8.15；删除石锅鱼 \\ 
+    \hline
+    v5.4   & 2025.7.3  & 修正 v5.3 中的日期错误；更新 2.2、2.4、2.8、2.9、3.2.1 文字叙述；3.3.1 更换图片；3.3.2 由哈尔滨麻辣烫更改为山西面馆；删除原 3.2.2 \\ 
+    \hline
 \end{tabularx}
+
+\clearpage
 
 \end{document}
