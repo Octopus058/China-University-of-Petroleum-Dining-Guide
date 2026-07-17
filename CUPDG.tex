@@ -1,171 +1,59 @@
-\documentclass{ctexart}
-\usepackage{xeCJK}
-\usepackage{fontspec}
-% 设置全局字体为楷体
-\setCJKmainfont{KaiTi}[
-    BoldFont={SimHei}, % 使用黑体作为粗体
-    ItalicFont={STXinwei}, % 使用楷体作为斜体
-    BoldItalicFont={SimHei} % 使用黑体作为粗斜体
-]
-% 设置英文字体
-\setmainfont{Times New Roman}
+\documentclass[lang=cn,color=blue,12pt,scheme=chinese,chinesefont=nofont]{elegantbook}
 
-% 设置页面
-\usepackage{geometry}
+% ---- Custom Packages ----
 \usepackage[normalem]{ulem}
 \usepackage{tabularx}
 \renewcommand\tabularxcolumn[1]{m{#1}}
 \usepackage{array}
 \usepackage{float}
-\usepackage{wrapfig}
-\usepackage{lastpage}
-\usepackage{titlesec}
-\usepackage{indentfirst}
-\usepackage{tikz}
-\usepackage{everypage}
-\usepackage{caption}
-\captionsetup[figure]{labelformat=empty}
-\usepackage{xcolor}
-\usepackage{listings}
-\usepackage{hyperref} % 超链接
-\usepackage{tikz}
-% 插图片
-\usepackage{graphicx}
-% 设置摘要页缩减 
-\usepackage{changepage}
-% 设置页眉页脚
-\usepackage{fancyhdr}
-\setlength{\headheight}{12.64723pt}
-\addtolength{\topmargin}{-0.64723pt}
-% 清空页眉页脚
-\pagestyle{fancy}
-% 设置列表缩进
-\usepackage[shortlabels]{enumitem}
-% 设置修改默认的section标题大小
-\usepackage{titlesec}
-\titleformat*{\section}{\LARGE}
-\titleformat*{\subsection}{\Large}
-\titleformat*{\subsubsection}{\Large}
-% 使用数学宏包
-\usepackage{amsmath}
-% 设置表格的列格式
-\usepackage{array}
-% 三线表宏包
-\usepackage{booktabs}
-% 设置产考文献不输出默认名
-\usepackage{etoolbox}
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
-% 引入网站作为参考文献
 \usepackage{url}
-% 设置等宽的代码字体
+\usepackage[normalem]{ulem}
+
+% ---- Custom Fonts ----
+\setCJKmainfont{KaiTi}[
+    BoldFont={SimHei},
+    ItalicFont={STXinwei},
+    BoldItalicFont={SimHei}
+]
+\setCJKsansfont{SimHei}
+\setCJKmonofont{KaiTi}
+\setmainfont{Times New Roman}
 \setmonofont{Courier New}
-% 颜色
-\usepackage{xcolor}
-% 代码高亮方案宏包
-\usepackage{listings}
-\definecolor{CPPLight}  {HTML} {686868}
-\definecolor{CPPSteel}  {HTML} {888888}
-\definecolor{CPPDark}   {HTML} {262626}
-\definecolor{CPPBlue}   {HTML} {4172A3}
-\definecolor{CPPGreen}  {HTML} {487818}
-\definecolor{CPPBrown}  {HTML} {A07040}
-\definecolor{CPPRed}    {HTML} {AD4D3A}
-\definecolor{CPPViolet} {HTML} {7040A0}
-\definecolor{CPPGray}  {HTML} {B8B8B8}
-\lstset{
-	basicstyle=\ttfamily,
-	breaklines=true,
-	framextopmargin=50pt,
-	frame=bottomline,
-	columns=fixed,       
-    %numbers=left,                                       % 在左侧显示行号
-	frame=none,                                          % 不显示背景边框
-	backgroundcolor=\color[RGB]{255,255,255},            % 设定背景颜色
-	keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
-	numberstyle=\footnotesize\color{darkgray},           % 设定行号格式
-	commentstyle=\itshape\color[RGB]{0,96,96},                % 设置代码注释的格式
-	stringstyle=\slshape\color[RGB]{128,0,0},   % 设置字符串格式
-	showstringspaces=false,                              % 不显示字符串中的空格
-	language=python,                                     % 设置语言
-	morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
-		reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
-		typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
-		dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
-		char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
-		void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
-		const,false,private,this,while,constexpr,float,protected,thread_local,
-		const_cast,for,public,throw,std},
-	emph={map,set,multimap,multiset,unordered_map,unordered_set,numpy,graph,path,append,extend,
-		unordered_multiset,unordered_multimap,vector,string,list,deque,
-		array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
-		random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
-		uniform_int_distribution,iterator,algorithm,functional,bing,numeric,},
-	emphstyle=\color{CPPViolet}, 
-}
+\xeCJKsetup{AutoFakeBold=true}
 
-\newgeometry{top=3cm, left=3.5cm, right=3.5cm}
-\usepackage{everypage}
-\AddEverypageHook{%
-  \begin{tikzpicture}[remember picture, overlay]
-    \draw[thick]
-      ([xshift=0.5cm, yshift=0.5cm]current page.south west)
-      rectangle
-      ([xshift=-0.5cm, yshift=-0.5cm]current page.north east);
-  \end{tikzpicture}%
-}
-
-% 设置自定义字体
 \newfontfamily\customfont{Freestyle Script}
 \newfontfamily\haettenfont{Haettenschweiler}
 \setCJKfamilyfont{xw}{STXinwei}
 \newcommand{\xw}[1]{{\CJKfamily{xw}#1}}
 
+% ---- Caption Setup ----
+\captionsetup[figure]{labelformat=empty}
+
+% ---- Metadata ----
+\title{中国石油大学（北京）吃饭指北}
+\subtitle{China University of Petroleum Dining Guide {\customfont (CUPDG)}}
+\author{刈夫和石大的同学们}
+\date{2026年7月17日}
+\version{v7.0}
+\extrainfo{窗边何必冰凉雨，自是美食忆永年。}
+\cover{assets/cover.jpg}
+
+\setcounter{tocdepth}{3}
 
 \begin{document}
 
-% 标题页
-\begin{titlepage}
-    \centering
-    \vspace*{96pt}
-    \includegraphics[width=1\textwidth]{pics/cup.png}\par
-    \fontsize{26}{31.2}\selectfont{中国石油大学（北京）吃饭指北}\par % 主标题
-    \fontsize{18}{21.6}\selectfont{China University of Petroleum Dining Guide \customfont (CUPDG)}\par % 英文标题
-    \vspace{39pt}
-    \fontsize{22}{26.4}\selectfont{\haettenfont v6. 0\normalfont }\par % 版本
-    \vspace{52.8pt}
-    \fontsize{18}{21.6}\selectfont{作者：刈夫和石大的同学们}\par % 作者
-    \fontsize{18}{21.6}\selectfont{最后编辑时间：2025年8月23日}\par % 最后编辑时间
-    \vfill
-\end{titlepage}
+\maketitle
 
-% 目录页
-\newpage
-\thispagestyle{empty}
-\footnotesize
+\frontmatter
 \tableofcontents
-\newpage
-% 目录页后面是第一页
-\setcounter{page}{1}
 
-% 开始写正文
-% 设置正文的页边距
-\newgeometry{top=3cm, left=3.5cm, right=3.5cm}
-% 设置正文的页眉页脚
-\fancyhf{}
-\fancyhead[C]{ }
-% 此处修改右上角页码
-\fancyhead[R]{Page \thepage\ of\ \NoHyper\pageref{LastPage}\endNoHyper}
-\fancyhead[L]{\customfont CUPDG}
-\fancyfoot[C]{\bfseries\thepage}
-% 设置序言标题居中且不显示章节编号
-\titleformat{\section}[block]{\normalfont\Large\bfseries\centering}{}{0pt}{}
-\fontsize{26pt}{31.2pt}\selectfont
-\vspace*{-50pt}
-\textbf{\section{序言}}
-\fontsize{14pt}{16.8pt}\selectfont
-\noindent\makebox[\linewidth][c]{\textbf{第5版}}
-\addcontentsline{toc}{subsection}{1.1 \ 第5版}
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+% ==================== 序言 ====================
+\chapter*{序言}
+\addcontentsline{toc}{chapter}{序言}
+\chaptermark{序言}
+
+\section{v5.0}
+\setlength{\parindent}{2em}
 
 经过一段时间的积累，作者终于决定发布本指北的稳定版。（注：第5版和第4版的最大区别就是\textbf{目录增加了超链接}，现在可以直接从目录点到对应的内容去）
 
@@ -176,27 +64,13 @@
 \textbf{窗边何必冰凉雨，自是美食忆永年。}
 \vspace{16.8pt}
 \begin{flushright}
-	\xw{刈夫}
-	
-	2024年9月10日
+    \xw{刈夫}
+
+    2024年9月10日
 \end{flushright}
 
-\vspace*{33.6pt}
-喜讯，本项目已经\textbf{上传Github}，欢迎大家前往查看！
-
-\href{https://github.com/Octopus058/China-University-of-Petroleum-Dining-Guide}{Github Repository (CUPDG)}
-
-麻烦大家\textbf{点个小小的star}，如果有任何意见，请\textbf{直接发起PR}，作者会不定期查看处理。
-\begin{flushright}
-	\xw{刈夫}
-	
-	2024年9月17日
-\end{flushright}
-\newpage
-
-\noindent\makebox[\linewidth][c]{\textbf{第2版}}
-\addcontentsline{toc}{subsection}{1.2 \ 第2版}
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{v2.0}
+\setlength{\parindent}{2em}
 
 作者对单调的学校食堂感到厌倦，加上下课时间调整后根本抢不上食堂座位被迫去外面吃。于是痛定思痛，常常在学校周围发掘宝藏小店，经过道听途说与不断尝试，有了一定积累。本来这些信息只在同班同学和老乡间传播，2024年8月31日下午，作者突发奇想，想把所有店总结一下，因此决定撰写本指北。
 
@@ -205,29 +79,22 @@
 另外，欢迎大家向作者分享更多宝藏店铺，让这份指北更加充实。作者QQ：2379401911，VX：Octopus058，不胜感激！
 \vspace{16.8pt}
 \begin{flushright}
-	\xw{刈夫}
-	
-	2024年8月31日
+    \xw{刈夫}
+
+    2024年8月31日
 \end{flushright}
 
-\newpage
-\titleformat{\section}[block]{\normalfont\Large\bfseries\centering}{}{0pt}{}
-\fontsize{26pt}{31.2pt}\selectfont
-\vspace*{-50pt}
-\textbf{\section{校内}}
-\vspace*{-20pt}
-\textbf{\subsection*{一、基本伙}}
-\addcontentsline{toc}{subsection}{2.1 \ 基本伙}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+% ==================== 正文：校内 ====================
+\mainmatter
+
+\chapter{校内}
+
+\section{基本伙}
 既然叫基本伙了，自然不要求他色香味俱全，你油的一餐一楼，二餐一楼，三餐一楼，一餐三楼的一部分都是基本伙，价格一般情况下在0-11元不等，一碗菜2-4元，一碗肉4-6元，有些特殊菜可能6-10元，米饭大中小分别八毛五毛三毛，如果按两菜一肉的话8-10块差不多了。
 
 另外，不同食堂的口味也不太一样，一餐三餐重口味，二餐经常过于清淡。不过这件事就见仁见智了，仅供各位参考。
 
-\textbf{\subsection*{二、风味窗口}}
-\addcontentsline{toc}{subsection}{2.2 \ 风味窗口}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{风味窗口}
 润杰的风味档口，小面和米线还行。感觉价格有点小贵，主要是图个方便，比外卖更快。米饭窗口味道不错，强推肉沫豆腐盖饭，自带碗就是7块，勾芡不错，划算好吃。卤肉饭自选菜味道不错，个人很喜欢，喜欢吃咸口的可以让叔叔多浇一勺汤。旁边的早餐铺位，小米粥太稀，胡辣汤（不知道现在还有没有）不好吃，不推荐。
 
 一餐二三四楼的风味窗口，经过种种变迁，消失了很多，留下的之中自然有精品，作者总结下来是这样的：
@@ -240,307 +107,215 @@
 
 三楼和四楼麻辣香锅，放在一起讲。三楼通常更咸（实际上是四楼根本一点味没有），四楼偶尔\textbf{可能不太卫生}。\textbf{（提供者：GF）}昌平最便宜的麻辣香锅没有之一。不能吃辣的同学建议微辣，能吃辣的同学建议特辣（也不是特别辣）。作者的吃法是方便面加一碗米饭，直接放一起吃，同学们可以参考一下。
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.63\textwidth]{pics/校内/炒鸡.jpg}
-	\caption{香辣炒鸡yyds} 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.63\textwidth]{assets/校内/炒鸡.jpg}
+    \caption{香辣炒鸡yyds}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.63\textwidth]{pics/校内/卷饼.jpg}
-	\caption{这是一个，不是两个} 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.63\textwidth]{assets/校内/卷饼.jpg}
+    \caption{这是一个，不是两个}
 \end{figure}
 四楼9/7块卷饼，体验和二楼夹馍差不多，但是够大，性价比挺高，就碗黑米粥爽到飞起。
 
 四楼米线，作为禾苑后时代的遗留产物，米线就和当年的面一样煮的大劲，一模一样的风格，看个人习惯。但无论如何，禾苑永远是神，永远活在我们心中。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.63\textwidth]{pics/校内/米线.jpg}
-	\caption{欢迎旧王}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.63\textwidth]{assets/校内/米线.jpg}
+    \caption{欢迎旧王}
 \end{figure}
 
 另外，四楼现在还有烤鸭/冒烤鸭，吃的人不多，但是20.5块钱这个价格确实比较实惠。
 
-\textbf{\subsection*{三、智选}}
-\addcontentsline{toc}{subsection}{2.3 \ 智选}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-二餐二楼和三餐二楼，你问好吃吗？当然好吃，你问价格怎么样，只能说贵的实在离谱，拿点肉就好几十，吓得作者再也不敢去了。富哥和放纵餐首选。
+\section{智选}
+二餐二楼和三餐二楼，你问好吃吗？当然好吃，你问价格怎么样，只能说贵的实在离谱，拿点肉就好几十，如果少吃点的话勉强在接受范围内。
 
-\textbf{\subsection*{四、禾苑}}
-\addcontentsline{toc}{subsection}{2.4 \ 禾苑}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-禾苑在经过一次脱胎换骨后成功损失了它的灵魂也就是面，且现在做的非常难吃，作者已发誓再也不去禾苑。
+\section{禾苑}
+2024年，和苑换了一次承包商，导致禾苑的口味和价格都发生了变化。如今作者个人认为仅限能吃的水平，是否好吃请慎重斟酌。
 
-\textbf{\subsection*{五、KFC}}
-\addcontentsline{toc}{subsection}{2.5 \ KFC}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-有一说一非必要不去。大部分人只有疯狂星期四才去KFC，但是校内经常比润杰路口的东西还少，而且也没优惠。对于校内同学来说本来天堂般的享受丧失殆尽，直接去润杰路口的即可。
+\section{KFC}
+有一说一非必要不去，作者感觉大部分人只有疯狂星期四才考虑吃KFC。校内和润杰旁边的KFC感觉差别不大，离哪个近去哪个，一定要记得提前点不然排上百个号要等到世界毁灭了。
 
 \textbf{GF更新：}有学生专享套餐，得自己去前台点，不能在手机上选。15.72三件套（汉堡+小薯+可乐），两种汉堡可选，个人推荐烤堡，非常nice。想不到吃什么但又不想吃食堂的时候，我就会去肯德基点份学生套餐。缺点是服务态度真的很差，而且每次给番茄酱都抠抠搜搜的。不过15块钱的肯德基三件套，还要什么自行车。
 
-\textbf{\subsection*{六、民族餐厅}}
-\addcontentsline{toc}{subsection}{2.6 \ 新疆餐厅}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{民族餐厅}
 排队时间有点长。面相当不错，其他没吃过，待补充。
 
-\textbf{\subsection*{七、翠宫}}
-\addcontentsline{toc}{subsection}{2.7 \ 翠宫}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.73\textwidth]{pics/校内/国际饭店.jpg}
+\section{翠宫}
+其貌不扬，其内别有洞天的神秘桃花源，详情请见：\\
+\url{https://beijingshidacuigong.beijing-hotels.cn/}。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.63\textwidth]{assets/校内/翠宫.png}
+    \caption{放一张图自己看}
 \end{figure}
 
-\textbf{\subsection*{八、石大夜市}}
-\addcontentsline{toc}{subsection}{2.8 \ 石大夜市}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-别问，问就是开的时间飘忽不定，导致作者每次都没去过，期待补全。
+\section{石大夜市}
+别问，问就是开的时间飘忽不定，导致作者每次都没去，不过据说较贵，期待补全。
 
-\textbf{\subsection*{九、中油大厦早餐点}}
-\addcontentsline{toc}{subsection}{2.9 \ 中油大厦早餐点}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{中油大厦早餐点}
 东西卖的比较快，来晚了就没了。挺便宜，挺好吃，给桂花糕点赞。
 
-\textbf{\subsection*{十、润杰食堂}}
-\addcontentsline{toc}{subsection}{2.10 \ 润杰食堂}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-早餐提供包子、煎饼、煎饺、玉米、牛奶、豆浆等，中午和晚上，呵呵......
+\section{润杰食堂}
+据说和新和苑是同一个公司，早餐提供包子、煎饼、煎饺、玉米、牛奶、豆浆等，中午和晚上没吃过，待补充。
 
-\textbf{\subsection*{十一、润杰西门口}}
-\addcontentsline{toc}{subsection}{2.11 \ 润杰西门口}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-适合懒狗，右边的“学长学姐推荐店”和左边的烧饼比较好。另，左边的铁板炒饭炒粉似乎有卫生问题。
 
-\newpage
-\titleformat{\section}[block]{\normalfont\Large\bfseries\centering}{}{0pt}{}
-\fontsize{26pt}{31.2pt}\selectfont
-\textbf{\section{校外}}
-\textbf{\subsection*{一、南校园闸机口一条街（燕平路）}}
-\addcontentsline{toc}{subsection}{3.1 \ 南校园闸机口一条街（燕平路）}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+% ==================== 正文：校外 ====================
+\chapter{校外}
+
+\section{南校园闸机口一条街（燕平路）}
+\setlength{\parindent}{2em}
 这条街作为润杰的同学们上学的必经之路，人流量极大，而且离学校和宿舍都近，非常适合不想去食堂的同学们，我选了其中几个尤其好的店做详细的介绍。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{pics/校外/南校/1 南校园闸机口一条路.jpg}
-\end{figure}
 
-\textbf{\subsubsection*{1. 高原拉面王}}
-\addcontentsline{toc}{subsubsection}{3.1.1 \ 高原拉面王}
+\subsection{高原拉面王}
 
-把高原作为校外的第一个店，我觉得是非常合理的。高原的拉面拌面炒饭都很好，作者个人喜欢13块的拉面，13块的蛋炒饭，19块的大盘鸡拌面。我觉得应该让每个石大学生都吃过高原才对。
+把高原作为校外的第一个店，我觉得是非常合理的。高原的总体质量还可以，作者主要吃13块的蛋炒饭，19块的大盘鸡拌面。我觉得应该没有石大学生没吃过高原。不过要特别强调两点，个人感觉某些饭非常油，而且中午人总是爆满，等半小时才吃上是常有的事。
 
-\textbf{\subsubsection*{2. 华莱士}}
-\addcontentsline{toc}{subsubsection}{3.1.2 \ 华莱士}
-华莱士常常被大家戏称“喷射战士”，但是我吃这家很多次了，没有出现过类似情况，可能是人流量大食材更新快的原因。因此，面对华莱士如此平民的价格，谁能不心动呢？
+\subsection{华莱士}
+华莱士常常被大家戏称"喷射战士"，但是我吃这家很多次了，没有出现过类似情况，可能是人流量大食材更新快的原因。面对华莱士如此平民的价格，谁能不心动呢？
 
-\textbf{\subsubsection*{3. 老曹家煎饼}}
-\addcontentsline{toc}{subsubsection}{3.1.3 \ 老曹家煎饼}
-这家煎饼应该是作者目前吃过的性价比最高的煎饼，量足实惠，如果你想可以试试他家38块钱的“牛B大煎饼”，还请告诉作者是什么感觉。
+\subsection{老曹家煎饼}
+这家煎饼应该是作者目前吃过的性价比最高的煎饼，量足实惠，如果你想可以试试他家38块钱的"牛B大煎饼"，还请告诉作者是什么感觉。
 
-\textbf{\subsubsection*{4. 水萝卜}}
-\addcontentsline{toc}{subsubsection}{3.1.4 \ 水萝卜}
-不得不说，虽然有点小贵，仍然不影响水萝卜作为多人聚餐的圣地之一，即使不想吃饺子，也可以点普通菜，就像每次聚会的那样，普普通通才是真。
+\subsection{水萝卜饺子}
+不得不说，虽然很贵，仍然不影响水萝卜作为多人聚餐的圣地之一，每年冬至都能看见一堆人排到店门口。
 
-\textbf{\subsubsection*{5. 醉面（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.1.5 \ 醉面}
+\subsection{农夫烤鱼}
+很不错的炒菜店，多人聚餐点烤鱼/田鸡，单人吃盖饭，价格适中。
+
+\subsection{醉面（提供者：GF）}
 不必多说，每次一到饭点人都爆满。个人非常喜欢炸鸡排，五块多一份。他家的红烧牛肉面，吃面首选。但是小程序杀熟，吃得多了就不给派券了。悦荟也有一家，怎么方便怎么来。
 
-\textbf{\subsubsection*{6. 爆香鸡（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.1.6 \ 爆香鸡}
+\subsection{爆香鸡（提供者：GF）}
 华莱士旁边，店面很小，不能堂食，只能拎去别的地方吃。因为店面很小所以也容易找不到，反正我总是找着找着就错过。味道不错，分量是大众饭量，反正我饭量大，我吃不饱。身边有同学钟爱左宗棠鸡饭，我觉得照烧鸡排饭不错。每天下午还能点饭团，但是得早点去，否则饭团阿姨就走了。学校学生去了应该是88折，折算下来价格还凑合。
 
-\textbf{\subsubsection*{7. 满巍明生炸鸡架（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.1.8 \ 满巍明生炸鸡架}
-很香，经常在放学路上被它馋得走不动道。但是也真的很贵，导致我到现在就买过一次。
-
-\textbf{\subsubsection*{8. 江西瓦罐（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.1.9 \ 江西瓦罐}
+\subsection{江西瓦罐（提供者：GF）}
 汤味道不错，粉也还说得过去，反正本人的江西朋友说不错。日常工作日吃的话，人均稍微有点高。
 
-\textbf{\subsubsection*{9. 包顺昌（提供者：tractorchicken）}}
-\addcontentsline{toc}{subsubsection}{3.1.9 \ 江西瓦罐}
+\subsection{包顺昌（提供者：tractorchicken）}
 味道不错，早八的合适选择，但早上要排队（而且非常长，很挡路）。
 
-\textbf{\subsubsection*{10. 超意兴（提供者：tractorchicken）}}
-\addcontentsline{toc}{subsubsection}{3.1.9 \ 江西瓦罐}
+\subsection{超意兴（提供者：tractorchicken）}
 类似一餐三和二餐一的小碗菜，正餐一般20块一顿，偏咸。午晚餐的清蒸巴沙鱼味道不错但是较贵（18块）。
 
+\subsection{KFC（提供者：tractorchicken）}
+我本来是不想写KFC的，但是既然给我发了信息我就写上吧，这个就没啥好说的了，疯狂星期四V我50。
 
-\textbf{\subsubsection*{11. KFC（提供者：tractorchicken）}}
-\addcontentsline{toc}{subsubsection}{3.1.9 \ 江西瓦罐}
-\textit{我本来是不想写KFC的，但是既然给我发了信息我就写上吧，这个就没啥好说的了，疯狂星期四V我50。}
-
-\textbf{\subsubsection*{12. 袁记云饺（提供者：tractorchicken）}}
-\addcontentsline{toc}{subsubsection}{3.1.9 \ 江西瓦罐}
+\subsection{袁记云饺（提供者：tractorchicken）}
 价格高，味道好，一分价钱一分货。
 
-\textbf{\subsection*{二、清秀园小区内}}
-\addcontentsline{toc}{subsection}{3.2 \ 清秀园小区内}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-清秀园小区相对来说是一个偏僻的位置（知道的人不多），这里面藏着几个非常不错的店，完全值得吃四年那种。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/清秀园/1 清秀园小区内.png}
-\end{figure}
 
-\textbf{\subsubsection*{1. 川菜馆}}
-\addcontentsline{toc}{subsubsection}{3.2.1 \ 美味川菜馆}
-“求你让我再去一次川菜馆吧，我什么都会做的！”作者如是说道。在去川菜馆之前，要对自己的饭量有一个清楚的认识，不然很容易出现吃不完的情况。如果你是和同学去，我的建议是几个人就点几个菜。如果你是一个人去，建议点盖饭（量也很大）。建议做好剩菜的心理准备。另外，一定定定要点外婆菜炒鸡蛋，我觉得这道菜是完全可以看作镇店之宝的含金量。
+
+\section{清秀园小区内}
+\setlength{\parindent}{2em}
+清秀园小区相对来说是一个偏僻的位置（知道的人不多），这里面藏着几个非常不错的店，完全值得吃四年那种。
+
+\subsection{川菜馆}
+"求你让我再去一次川菜馆吧，我什么都会做的！"作者如是说道。在去川菜馆之前，要对自己的饭量有一个清楚的认识，不然很容易出现吃不完的情况。如果你是和同学去，我的建议是几个人就点几个菜。如果你是一个人去，建议点盖饭（量也很大）。建议做好剩菜的心理准备。另外，一定定定要点外婆菜炒鸡蛋，我觉得这道菜是完全可以看作镇店之宝的含金量。
 
 2025年5月，川菜馆关了整整24天，导致作者一度不知道吃什么，整天泡在山西面馆和高原里愁容满面，打开美团看川菜馆开没开门。作者的同学评论道：川菜馆应该改名叫媚胃而不是美味。
 
+\subsection{\sout{啤酒超市}}
 
-\textbf{\subsubsection*{2. 啤酒超市}}
-\addcontentsline{toc}{subsubsection}{3.2.2 \ 啤酒超市}
+\textit{此店已搬迁，据说在昌平公园周围，待考证}
+
 这家为什么要单独强调，因为卖的酒实在是太高级了，从4块到50块，可谓应有尽有，满足你对啤酒的99\%需求，无论是中国的，欧洲的，美国的，甚至印度的，俄罗斯的，没有你找不到，只有你想不到。我强推的有诱惑7（Tempt 7），像气泡甜水，很有意思；百威白啤，非常实惠又好喝的平价酒，还有上百种等待着同学们去探索。
 
-\textbf{注：买完酒去川菜馆吃饭的时候喝100\%会感觉很撑，别问我为什么，问就是每次我都是这样，很奇怪。}
-
-\textbf{\subsubsection*{3. 砂锅牛肉面}}
-\addcontentsline{toc}{subsubsection}{3.2.3 \ 砂锅牛肉面}
+\subsection{砂锅牛肉面}
 这家可能是作者在学校附近找到的唯一一家砂锅牛肉面，确实好吃，店面一直开到晚上十点。要注意的是，砂锅刚上来的时候特别烫，建议先放10分钟再吃，不然嘴被烫伤问题就大了。
 
-\textbf{\subsubsection*{4. 尝到家尝（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.2.4 \ 尝到家尝}
+\subsection{尝到家尝（提供者：Silenchatter）}
 北平人家旗下北京菜系，经典菜鱼头泡饼可食（最好多几个人）。他们家也是附近为数不多可以点豆汁的店，请挑战自己。
 
-\textbf{\subsection*{三、润杰西门一条街（东环路）}}
-\addcontentsline{toc}{subsection}{3.3 \ 润杰西门一条街（东环路）}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
-懒狗必看。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/润杰/1 润杰西门一条街（东环路）.png}
-\end{figure}
+\section{润杰西门一条街（东环路）}
+\setlength{\parindent}{2em}
+不想走远路必看。
 
-\textbf{\subsubsection*{1. 川渝小厨（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.3.1 \ 川渝小厨}
+\subsection{川渝小厨（提供者：Ash）}
 川渝小厨作为传说中的你校校外食堂广受好评，单人前往的时候有可以不限量添饭的各式盖饭，三两好友相聚的时候也可以点上几个炒菜。价格相当的亲民，一般情况下平均每顿饭20-30，这个价位就能吃饱了。说是川菜但是实际上并没有很辣，口味改良过，受众还是比较广的。推荐菜：水煮肉片，铁板日本豆腐，干锅土豆片。
 
 \textbf{提供者：tractorchicken}：小炒肉盖饭、小炒猪肝盖饭鲜嫩有锅气，适合嗜辣人群日常食用。聚餐时单点两份小炒肉、小炒猪肝也是品质之选。烤鱼非常美味但99说实话有点贵了。
 
-
-\textbf{\subsubsection*{2. 山西面馆（提供者：tractorchicken）}}
-\addcontentsline{toc}{subsubsection}{3.3.2 \ 山西面馆}
+\subsection{山西面馆（提供者：tractorchicken）}
 物美价廉的面馆，份量较足，口感不错，值得一试。
 
-这里曾为除一餐麻辣香锅外昌平第二便宜麻辣烫，除味道有些淡以外无任何缺点，老板娘人特别好。原店于2025年关闭，保留此行以兹纪念。
+\textit{这里曾为除一餐麻辣香锅外昌平第二便宜麻辣烫，除味道有些淡以外无任何缺点，老板娘人特别好。原店于2025年关闭，保留此行以兹纪念。}
 
-\textbf{\subsection*{四、阳光商厦一条街（府学路）}}
-\addcontentsline{toc}{subsection}{3.4 \ 阳光商厦一条街（府学路）}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{阳光商厦一条街（府学路）}
+\setlength{\parindent}{2em}
 政法旁边，国泰对面，清秀园后面，就是著名的阳光商厦，周围东西不少，主要推荐以下。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{pics/校外/阳光商厦/1 阳光商厦一条街（府学路）.jpg}
-\end{figure}
 
-\textbf{\subsubsection*{1. 好伦哥}}
-\addcontentsline{toc}{subsubsection}{3.4.1 \ 好伦哥}
+\subsection{好伦哥}
 好伦哥在阳光商厦顶楼，个人感觉好像阳光商厦除了好伦哥别的店都跑路了，这也证实了好伦哥的强大。美团学生券80-90不等，工作日稍便宜点。中午11点晚上5点开餐，如果你来晚了，有可能排上百号人的队，这个时候就退了走人吧，作者亲身经历是一小时排了60号，排到结束都排不到，火爆的难以想象。进去建议先拿牛排烤鸭，一次拿一块，可以排两次队，等下一波（20分钟左右）可以继续排。
 
-\textbf{\subsubsection*{2. 地下超市}}
-\addcontentsline{toc}{subsubsection}{3.4.2 \ 地下超市}
+\subsection{海汕记}
+潮汕牛肉火锅自助，非常贵，130左右，但是是周围能吃到的最好的肉。羊肉串非常好吃，饮料种类较少。
+
+\subsection{地下超市}
 这个地下超市卖的东西往往比南校园闸机口一条街的各种店更便宜，尤其是水果。举个例子来说，今年夏天的无子麒麟瓜2.5一斤，半个8块左右。超市入口在图中稻香村的位置。缺点是地下稍微有点热，排队有时候比较长。另外，如果你买瓜的话，结完账有一个帮你切完装盒的窗口，还是非常方便的。
 
-\textbf{\subsubsection*{3. 达美乐}}
-\addcontentsline{toc}{subsubsection}{3.4.3 \ 达美乐}
+\subsection{达美乐}
 收录达美乐的原因是它不定期有披萨买一送一活动，否则性价比不太高，建议等活动的时候来，相当于一张披萨才20左右，还是很爽的。
 
 \textbf{GF更新：}金沙咸蛋黄嫩鸡披萨yyds！
 
-\textbf{\subsubsection*{4. 麦当劳（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.4.4 \ 麦当劳}
+\subsection{麦当劳（提供者：Ash）}
 麦当劳作为十里八乡出名的老北京特色美食，优越性体现在全年都有的穷鬼套餐1+1以及作为一代人心目中的经典巨无霸和薯条。值得一提的是麦当劳的甜品也十分值得称道，在平级的快餐店中甜筒质量遥遥领先。
 
 另外，支付宝学生认证可以领劵（白嫖），麦当劳App学生认证可以获得优惠价麦金会员。
 
-\textbf{\subsubsection*{5. 汉堡王（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.4.5 \ 汉堡王}
+\subsection{汉堡王（提供者：Ash）}
 常言道：英国唯一的国王就是汉堡王。皇堡拥有连锁快餐店中难以寻得的新鲜洋葱圈和西红柿片，极大程度丰富了口感。不过平时较贵，仅推荐周三的国王日活动特价套餐。
 
-\textbf{\subsubsection*{6. 千叶寿司（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.4.6 \ 千叶寿司}
+\subsection{千叶寿司（提供者：Silenchatter）}
 价格实惠性价比高，手艺还不错。推荐天妇罗虾以及招牌系列寿司。
 
-\textbf{\subsubsection*{7. 虾吃虾涮/王婆大虾（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.4.7 \ 虾吃虾涮/王婆大虾}
-虾火锅。两家差不多，王婆人均高10，套餐适合团建。本人口味偏重，喜欢一口气把虾剥完后放回锅内吸汤，可以根据个人喜好吃。 
+\subsection{虾吃虾涮/王婆大虾（提供者：Silenchatter）}
+虾火锅。两家差不多，王婆人均高10，套餐适合团建。本人口味偏重，喜欢一口气把虾剥完后放回锅内吸汤，可以根据个人喜好吃。
 
 \textbf{GF更新：}虾吃虾涮在某音买团购后去吃。吃完虾锅还可以免费无线续面，特别好吃。
 
-\newpage
-\textbf{\subsection*{五、东校区一条街（亢山路）}}
-\addcontentsline{toc}{subsection}{3.5 \ 东校区一条街（亢山路）}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{东校区一条街（亢山路）}
+\setlength{\parindent}{2em}
 对于本科同学来说，东校区去的很少，对那一条街自然也就不甚了解。作者也尝试了一些，以下是一些比较好的店。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{pics/校外/东校/1 东校区一条街（亢山路）.jpg}
-\end{figure}
 
-\textbf{\subsubsection*{1. 螺狮粉}}
-不知道是不是我吃的少的缘故，我觉得螺狮粉很辣，一般情况下我点中辣就是极限了，大约等于一餐四楼的麻辣香锅特辣。螺狮粉好吃就不用多说了，17块钱左右，政法对面也有一家，有点远，价格差不多，因此我就只写了这一家。
-
-\textbf{\subsubsection*{2. 板面}}
-\addcontentsline{toc}{subsubsection}{3.5.2 \ 板面}
+\subsection{板面}
 板面，近来可好？是否寝食安定？故乡的花一如往日般灿烂。不知你何时归来再于城下踏青赏花。此刻夜寝未久，楼外寒随雨起，雷藏云中，花随风落。山川异域，不知你身边是怎样的风景，是否双燕齐飞，春江水暖？有没有好好留意呢？风月同天，不知你身边是怎样的气象，是否像故乡般云烟缭绕，春雨润物？一种相思两处闲愁，幸好，夜不能寐孤寂落寞之时能看到你发的视频，得以慰藉。大抵你也是想我的，深感宠幸，唯望锻炼吉祥如意，武运昌隆，待来年春回，能共你一同赏花看海，诉说衷情。
 
 咳咳，原谅我的发癫。众所周知正宗安徽板面在河北，作为一个河北人，看到板面就走不动路也是正常的。我的吃法是大碗宽板面加面，16块（老板肯定认识我了）。
 
-\textbf{\subsubsection*{3. 晋大碗/人之初拉面（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.5.3 \ 晋大碗/人之初拉面}
+\subsection{晋大碗/人之初拉面（提供者：Silenchatter）}
 和板面并列为三家活了很久的面馆。作为爱吃面的北方人，学校食堂的面又比较一言难尽，这三家面确实能满足大部分人的需求。
 
-\textbf{\subsubsection*{4. 京东肉饼（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.5.4 \ 京东肉饼}
+\subsection{京东肉饼（提供者：Silenchatter）}
 适合三五好友小聚的店。人均四五十，可以点几个菜就着他们家的肉饼吃（每次都会误判食量以至于最后几块肉饼需要用石头剪刀布决定到底哪个撑的不行的人吃）。
 
-\textbf{\subsubsection*{5. 段记肉夹馍（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.5.5 \ 段记肉夹馍}
-一样适合三五好友小聚。肉夹馍算是做的比较好吃（陕西室友认同） 。
+\subsection{段记肉夹馍（提供者：Silenchatter）}
+一样适合三五好友小聚。肉夹馍算是做的比较好吃（陕西室友认同）。
 
-\textbf{\subsubsection*{6. 驴肉火烧（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.5.6 \ 驴肉火烧}
+\subsection{驴肉火烧（提供者：Silenchatter）}
 天上龙肉地上驴肉。不管你是不是河间/保定人，都要试一试驴肉火烧（学校附近的基本上都是河间驴肉火烧，本人也是河间派，吃驴肉加焖子火烧真的无敌），再来一碗驴杂汤，美滋滋。
 
-\textbf{\subsection*{六、悦荟}}
-\addcontentsline{toc}{subsection}{3.6 \ 悦荟}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\section{悦荟}
+\setlength{\parindent}{2em}
 悦荟坐落于润杰旁边，简直石大学生的第二天堂，必去的店也是多如云。大部分店都集中在五楼。
 
-\textbf{注：此部分更新频率缓慢，可能出现已倒闭店铺！！！}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{pics/校外/悦荟/悦荟.jpg}
-\end{figure}
+\textbf{注：此部分店铺更迭快，不保证时效性！}
 
-\textbf{\subsubsection*{1. 萨莉亚（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.6.1 \ 萨莉亚}
+\subsection{龙歌旋转火锅}
+东西不少，人更多，60块钱在北京价格很低了，镇店之宝是卤肉饭，虽然作者从未见过。鸡腿（随机刷新）非常好吃，和KFC做的差不多。
+
+\subsection{萨莉亚（提供者：Ash）}
 主要推荐：肉酱意面，烤鸡排，烤鸡腿。
 
 我个人认为萨莉亚是在意餐的价格和品质中取了一个黄金比例的餐厅。意面和烩饭或者肉排这种主菜的话，如果你对自己的胃口比较有自信，可以多尝试一种。诚然，并不一定是每一种菜品都足够合口味，但是能用一碗兰州牛肉面的价格体验一盘肉酱意大利面，也是不错的一种选择。
 
 顺便一提，如果你是肥宅快乐水爱好者，萨莉亚有畅饮的饮料吧，可以自行取饮。
 
-\textbf{\subsubsection*{2. 熊喵来了（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.6.2 \ 熊喵来了}
+\subsection{熊喵来了（提供者：Ash）}
 熊喵来了作为在性价比市场上占据优势的火锅连锁店，近年来有与海底捞成分庭抗礼之势。
 
 这家店的火锅底料属经典口味，肉类和涮品也属中庸。但之所以出现在这里，是因为这家店可以在美团上团购获取最优价格，并且作为招牌的一部分，鸭血和卤豆腐是免费且不限量的。
@@ -549,93 +324,82 @@
 
 写在最后，据笔者个人了解，火锅底料并非清真牛油，回民同学谨慎食用。
 
-\textbf{\subsubsection*{3. 胖哥俩肉蟹煲（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.6.3 \ 胖哥俩肉蟹煲}
+\subsection{胖哥俩肉蟹煲（提供者：Silenchatter）}
 这倒没啥好说的连锁店，价格和质量都说的过去。
 
-\textbf{\subsubsection*{4. 绿茶（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.6.4 \ 绿茶}
+\subsection{绿茶（提供者：Silenchatter）}
 适合3-6人聚餐。口味偏清，价格凑合，周末也是真的要排队。
 
-\textbf{\subsubsection*{5. 文通冰室（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.6.5 \ 文通冰室}
+\subsection{文通冰室（提供者：Silenchatter）}
 港式茶餐厅。这个领域内相对性价比高的一家店，多看看团购也许会有惊喜。
 
-\textbf{\subsubsection*{6. 文立新麻辣烫（提供者：外语学院李雷锋）}}
-\addcontentsline{toc}{subsubsection}{3.6.6 \ 文立新麻辣烫}
+\subsection{文立新麻辣烫（提供者：外语学院李雷锋）}
 你以为东北大婶和颜悦色都是实诚人？不！精致小碟麻辣烫，宰你不留情面！
 
-\textbf{\subsubsection*{7. 煲仔皇（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.6.7 \ 煲仔皇}
+\subsection{煲仔皇（提供者：GF）}
 -1层，好吃，强推。用了团购后价格合适。汤非常好喝，强烈建议吃煲仔饭的时候配上一碗汤。
 
-\newpage
-\textbf{\subsection*{七、政法东侧一条街（松原路）}}
-\addcontentsline{toc}{subsection}{3.7 \ 政法东侧一条街（松原路）}
-\fontsize{14pt}{16.8pt}\selectfont
+\subsection{沙胆彪炭炉牛杂煲（提供者：QAQ我不知道）}
+在五层，广东福建的同学可能会比较喜欢吃这种港式牛杂煲，味道挺好吃的，团购双人餐人均差不多89。
+
+\section{政法东侧一条街（松原路）}
+\setlength{\parindent}{2em}
 吃的非常之多，能在这条街上活下来的都是有点手艺的强手。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/政法/1 政法东侧一条街（松原路）.jpg}
-\end{figure}
 
-\textbf{\subsubsection*{1. 山葵村（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.1 \ 山葵村}
-新开的韩式烤肉店。经常排队，价格略高一点点。开业的时候主打一个95\%都是男店员，现在也开始招一些女店员（诚实的说他们的烤肉水平达到了普通人水准 ）。
+\subsection{螺老大螺狮粉}
+很辣，一般情况下作者点中辣就是极限了，比一餐四楼的麻辣香锅特辣辣多了，20块钱左右。
 
-\textbf{\subsubsection*{2. 韩国肉先生（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.2 \ 韩国肉先生}
-是已经营业了很久的韩国烤肉店。主打一个性价比超高，环境稍微差一点。
+\subsection{山葵村（提供者：Silenchatter）}
+韩式烤肉店。经常排队，价格略高一点点。开业的时候主打一个95\%都是男店员，现在也开始招一些女店员（诚实的说他们的烤肉水平达到了普通人水准）。
 
-\textbf{\subsubsection*{3. 螺老大螺蛳粉（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.3 \ 螺老大螺蛳粉}
+\subsection{韩国肉先生（提供者：Silenchatter）}
+已经营业了很久的韩国烤肉店。主打一个性价比超高，环境稍微差一点。
+
+\subsection{螺老大螺蛳粉（提供者：Silenchatter）}
 胡同进去闻着味就找到了。之前是超超超正宗的螺蛳粉，现在也屈服了（指可以做不辣的螺蛳粉）。绿豆沙之前是买一碗可以无限量供应，现在也改成只能续一次（万恶的资本）。
 
-\textbf{\subsubsection*{4. 蜀园（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.4 \ 蜀园}
+\subsection{蜀园（提供者：Silenchatter）}
 川菜，多人聚餐的神（能吃一点点辣的也有能吃的菜）。价格可以接受，环境也不错。
 
-\textbf{\subsubsection*{5. 喵lady（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.5 \ 喵lady}
-猫咖，喜🐱者来。低消是一杯30左右的饮品，然后你就可以坐上一个下午（周六日人非常多，可以选一个周内的午后来玩睡觉的猫）。约会好去处。
+\subsection{喵lady（提供者：Silenchatter）}
+猫咖，喜猫者来。低消是一杯30左右的饮品，然后你就可以坐上一个下午（周六日人非常多，可以选一个周内的午后来玩睡觉的猫）。约会好去处。
 
-\textbf{\subsubsection*{6. 锦州胖子烧烤/松原小刘烧烤（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.6 \ 锦州胖子烧烤/松原小刘烧烤}
+\subsection{锦州胖子烧烤/松原小刘烧烤（提供者：Silenchatter）}
 相对来说是能做到及格线的烧烤。在昌平城区这个地方你真的很难找到让所有人满意的烧烤，因此这里属于是可以接受的一档。
 
-\textbf{\subsubsection*{7. 王林串串香（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.7.7 \ 王林串串香}
+\subsection{王林串串香（提供者：Silenchatter）}
 性价比高，对自己肠胃的消化能力不自信的慎来。减肥的请进（不过串串嘛，哪里都是一样的拉，希望大家吃完之后有空一起拉）。
 
-\textbf{\subsection*{八、更远}}
-\addcontentsline{toc}{subsection}{3.8 \ 更远}
-\fontsize{14pt}{16.8pt}\selectfont
-\setlength{\parindent}{2em} % 设置首行缩进为2字符
+\subsection{如意醪糟醋火锅（提供者：QAQ我不知道）}
+还挺好吃的，如果喜欢吃椰子火锅可以试一下，一定要试一下他们家的辣锅，涮青菜特别好吃。
+
+\subsection{韩食记（提供者：QAQ我不知道）}
+位置比较偏，但是喜欢韩餐的同学可以去吃一下，挺好吃的，也不是特别贵，听说老板是韩国人，可能味道会比较正宗一些。
+
+\section{更远}
+\setlength{\parindent}{2em}
 向更远的地方拓展，包括但不限于政府街，昌平东关等。部分需要同学们提供更多资料，联系方式见序言，谢谢！
 
-\textbf{注：此部分更新频率缓慢，可能出现已倒闭店铺！！！}
+\textbf{注：较远处探店频率低，不保证时效性！}
 
-\textbf{\subsubsection*{1. 晋永信刀削面（提供者：润杰梁朝伟）}}
-\addcontentsline{toc}{subsubsection}{3.8.1 \ 晋永信刀削面}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/晋永信.png}
+\subsection{晋永信刀削面（提供者：润杰梁朝伟）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/晋永信.png}
 \end{figure}
 个人感觉附近最好的一家刀削面，价格也在15左右，比较正常。
 
-\textbf{\subsubsection*{2. 烤馕（提供者：润杰梁朝伟）}}
-\addcontentsline{toc}{subsubsection}{3.8.2 \ 烤馕}
+\subsection{烤馕（提供者：润杰梁朝伟）}
 从晋永新刀削面吃完回宿舍发现的，这个店没有牌子，在胡同里很不显眼，从昌平二中那边来的话，一直看着胡同右边就能找到了。五块钱一个馕，谢邀，已经吃到地老天荒，好吃就完事了。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/烤馕.png}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/烤馕.png}
 \end{figure}
 
-\textbf{\subsubsection*{3. 姜胖胖首尔自助烤肉（提供者：Ash）}}
-\addcontentsline{toc}{subsubsection}{3.8.3 \ 姜胖胖首尔自助烤肉}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/姜胖胖.png}
+\subsection{姜胖胖首尔自助烤肉（提供者：Ash）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/姜胖胖.png}
 \end{figure}
 如果你最近正在寻求烤肉的话，可以尝试一下这家自助烤肉。大约八十五块钱，名义上是韩式烤肉，但提供了各种风格的酱料因此不会囿于口味。
 
@@ -643,128 +407,111 @@
 
 不过除非你想当冤大头，最好不要点类似于部队锅或者韩式拉面之类的东西，有兴趣不如自己买两包韩式泡面实在。
 
-\textbf{\subsubsection*{4. 京北128号火锅鸡（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.4 \ 京北128号火锅鸡}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/火锅鸡.png}
+\subsection{初喜（提供者：QAQ我不知道）}
+主打的是日式料理，这家的寿喜烧还不错，寿司也挺好吃的，人均60+。
+
+\subsection{京北128号火锅鸡（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/火锅鸡.png}
 \end{figure}
 无敌的性价比，标准的脏摊配置，以及大众认可的口味，能让这样一家藏的不能再隐蔽的店在中午十二点能等位30桌。建议早点去排队。
 
-\textbf{\subsubsection*{5. 锦州烧烤(安福大街店)（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.5 \ 锦州烧烤(安福大街店)}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/锦州.png}
+\subsection{锦州烧烤(安福大街店)（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/锦州.png}
 \end{figure}
 一些东北朋友常去的烧烤店。位置隐蔽，性价比高（本人曾有幸在店里看到一位女士单人开桌就着烧烤喝了八瓶燕京）。比标准化烧烤好吃，推荐烤豆皮。
 
-\textbf{\subsubsection*{6. 小天地砂锅牛（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.6 \ 小天地砂锅牛}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/砂锅牛.png}
+\subsection{小天地砂锅牛（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/砂锅牛.png}
 \end{figure}
 新开没多久的店，性价比高，口味稍微清淡一些（你要是加很多辣椒也可以口味重）。强推下到锅里面的小油条。
 
-\textbf{\subsubsection*{7. 昌顺马记小吃（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.7 \ 昌顺马记小吃}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/马记.png}
+\subsection{昌顺马记小吃（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/马记.png}
 \end{figure}
 招牌烧饼夹坛子肉，性价比超高。塞的满满当当开口超过45°的肉夹馍普通人吃两个就很饱了。他们家营业时间6-13，但是12点还是会排二三十个人左右，主打一个营业时间全程爆满。
 
-\textbf{\subsubsection*{8. 邹三姐火锅（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.8 \ 邹三姐火锅}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/邹三姐.png}
+\subsection{邹三姐火锅（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/邹三姐.png}
 \end{figure}
 四川火锅。味道说得过去，应该算是这一片比较实惠的几家火锅之一（但是每次吃完衣服上的火锅味真的很重）。
 
-\textbf{\subsubsection*{9. 齐齐哈尔臻兄弟烤肉（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.9 \ 齐齐哈尔臻兄弟烤肉}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/齐齐哈尔.png}
+\subsection{齐齐哈尔臻兄弟烤肉（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/齐齐哈尔.png}
 \end{figure}
 蒙古烤肉。团购价格真的很好（更推荐抖音团购）。可以尝尝他们家特色的酱汁，店员会帮忙烤，味道也还不错。
 
-\textbf{\subsubsection*{10. 山河屯铁锅炖（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.10 \ 山河屯铁锅炖}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/山河屯.png}
+\subsection{山河屯铁锅炖（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/山河屯.png}
 \end{figure}
 身边的人有说普通的（也许是价格在铁锅炖领域里一般），但是确实稳定，是值得一试的选择。
 
-\textbf{\subsubsection*{11. 成万富巫山烤全鱼（提供者：Silenchatter）}}
-\addcontentsline{toc}{subsubsection}{3.8.11 \ 成万富巫山烤全鱼}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.67\textwidth]{pics/校外/更远/巫山.png}
+\subsection{成万富巫山烤全鱼（提供者：Silenchatter）}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.67\textwidth]{assets/校外/更远/巫山.png}
 \end{figure}
 这是一家拥有两种流派选择的店。
 
 如果你吃不出鱼现杀和提前杀的区别，那么就点团购（便宜）。如果对鱼的要求比较高，那么就去店里现挑鱼杀烤来吃（略贵）。口味确实还不错（烤鸡翅也挺好）。
 
-\textbf{\subsubsection*{12. 彭姑娘台湾车轮饼章鱼烧（提供者：Silenchatter）}}
+\subsection{彭姑娘台湾车轮饼章鱼烧（提供者：Silenchatter）}
 车轮饼真的很好吃！
-\addcontentsline{toc}{subsubsection}{3.8.12 \ 彭姑娘台湾车轮饼章鱼烧}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.67\textwidth]{pics/校外/更远/车轮饼.png}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.67\textwidth]{assets/校外/更远/车轮饼.png}
 \end{figure}
 
-\textbf{\subsubsection*{13. 麦香炸鸡（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.8.13 \ 麦香炸鸡}
+\subsection{麦香炸鸡（提供者：GF）}
 坐标昌平地铁站A口对面，我愿称之为昌平最好吃的炸鸡。小时候的味道。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{pics/校外/更远/麦香炸鸡.png}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/校外/更远/麦香炸鸡.png}
 \end{figure}
 
-\textbf{\subsubsection*{14. 巴依老爷新疆美食（提供者：GF）}}
-\addcontentsline{toc}{subsubsection}{3.8.14 \ 巴依老爷新疆美食}
+\subsection{巴依老爷新疆美食（提供者：GF）}
 吃过一次，价格很贵，建议像我这样没钱的朋友们不要轻易尝试。味道仁者见仁，个人觉得还行，羊肉串好吃，但是不爱吃的朋友也有很多。
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/巴依老爷.png}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/巴依老爷.png}
 \end{figure}
 
-
-\textbf{\subsubsection*{15. 思念妈妈东北菜馆（提供者：Aurora）}}
-\addcontentsline{toc}{subsubsection}{3.8.15 \ 思念妈妈东北菜馆}
+\subsection{思念妈妈东北菜馆（提供者：Aurora）}
 和周边同学去了好几次了,个人推荐晾衣大饼(口感类似蛋挞皮),铁板烧烤,小炒黄牛肉和锅包肉！
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/思念妈妈东北菜馆.png}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/校外/更远/思念妈妈东北菜馆.png}
 \end{figure}
 
-\textbf{\subsubsection*{16. 沧州火锅鸡}}
-北京，人均40，火锅鸡，免费小菜，自家酿醋，还需要我多说吗，冲就完了！
-\addcontentsline{toc}{subsubsection}{3.8.16 \ 沧州火锅鸡}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{pics/校外/更远/沧州火锅鸡.png}
-\end{figure}
+\subsection{小东北烧烤（提供者：萧雨思筱）}
+神，位置一言难尽，在一个很神秘的胡同里。烧烤便宜又好吃，还有性价比超高的麻辣烫，干巴炒饼、三分熟也特别好吃。
 
-\newpage
 \appendix
-\begin{center}
-	\section{鸣谢}
-\end{center}
 
-非常感谢以下同学向我提供宝贵的信息，排名按供信息时间先后顺序。
+\chapter{鸣谢}
+
+非常感谢以下同学向我提供宝贵的信息，按供信息时间先后顺序。
 
 \textit{润杰梁朝伟}
 
 \textit{橘皮}
 
-\textit{Ash}（第二版核心作者）
+\textit{Ash}（v2.0核心贡献者）
 
-\textit{Silenchatter}（第四版核心作者）
+\textit{Silenchatter}（v4.0核心贡献者）
 
 \textit{GF}
 
@@ -772,53 +519,56 @@
 
 \textit{Aurora}
 
-\textit{tractorchicken}（第六版核心作者）
+\textit{tractorchicken}（v6.0核心贡献者）
+
+\textit{QAQ我不知道}
+
+\textit{萧雨思筱}
 
 \vspace{16.8pt}
 感谢同学们的支持，也欢迎大家将指北宣传出去，让更多人知道；同时提供更多信息，让这份指北更加完善。没有你们就没有这份指北，谢谢！
 \vspace{16.8pt}
 \begin{flushright}
-	\xw{刈夫}
-	
-	2025年8月23日
+    \xw{刈夫}
 
-	更新于v6.0
+    2026年7月17日
+
+    更新于v7.0
 \end{flushright}
 
-\newpage
-\setlength{\parindent}{0pt} % 取消首行缩进
-\begin{center}
-	\section{更新日志}
-\end{center}
+\chapter{更新日志}
+\setlength{\parindent}{0pt}
 
 \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}m{2cm}
                             |>{\centering\arraybackslash}m{3cm}
                             |>{\raggedright\arraybackslash}X|}
     \hline
-    \textbf{版本} & \textbf{日期} & \multicolumn{1}{c|}{\textbf{更新内容}} \\ 
+    \textbf{版本} & \textbf{日期} & \multicolumn{1}{c|}{\textbf{更新内容}} \\
     \hline
-    v1.0   & 2024.8.31 & 完成 word 版初步编写 \\ 
+    v1.0   & 2024.8.31 & 完成 word 版初步编写 \\
     \hline
-    v2.0   & 2024.8.31 & 基本完善校内内容；新增 6 条 3.1–3.5 内容 \\ 
+    v2.0   & 2024.8.31 & 基本完善校内内容；新增 6 条 3.1–3.5 内容 \\
     \hline
-    v3.0   & 2024.9.1  & \textbf{第一次重大更新} Latex 重写排版；新增 3.6 悦荟 \\ 
+    v3.0   & 2024.9.1  & 用 Latex 重写；新增 3.6 悦荟 \\
     \hline
-    v4.0   & 2024.9.4  & \textbf{第二次重大更新} 更换封面学校图标；删除原 3.5.2 胡辣汤；修正汉堡王配图错误；修正达美乐写成好利来错误；修正禾苑、KFC 歧义；新增一餐内容；新增 28 条校外内容；修改全文字体、页面样式、附录内容 \\ 
+    v4.0   & 2024.9.4  & 更换封面学校图标；删除原 3.5.2 胡辣汤；修正汉堡王配图错误；修正达美乐写成好利来错误；修正禾苑、KFC 歧义；新增一餐内容；新增 28 条校外内容；修改全文字体、页面样式、附录内容 \\
     \hline
-    v5.0   & 2024.9.10 & 增加目录超链接，页面边框；更换花体页眉、部分字体；新增序言 \\ 
+    v5.0   & 2024.9.10 & 增加目录超链接，页面边框；更换花体页眉、部分字体；新增序言 \\
     \hline
-    v5.1   & 2024.9.17 & 新增 3.6.7；将项目上传至 GitHub，实现开源 \\ 
+    v5.1   & 2024.9.17 & 新增 3.6.7；将项目上传至 GitHub，实现开源 \\
     \hline
-    v5.2   & 2024.12.5 & 新增 3.8.13、3.8.14 \\ 
+    v5.2   & 2024.12.5 & 新增 3.8.13、3.8.14 \\
     \hline
-    v5.3   & 2025.5.17 & 新增 3.8.15；删除石锅鱼 \\ 
+    v5.3   & 2025.5.17 & 新增 3.8.15；删除石锅鱼 \\
     \hline
-    v5.4   & 2025.7.3  & 修正 v5.3 中的日期错误；更新 2.2、2.4、2.8、2.9、3.2.1 文字叙述；3.3.1 更换图片；3.3.2 由哈尔滨麻辣烫更改为山西面馆；删除原 3.2.2 \\ 
+    v5.4   & 2025.7.3  & 修正 v5.3 中的日期错误；更新 2.2、2.4、2.8、2.9、3.2.1 文字叙述；3.3.1 更换图片；3.3.2 由哈尔滨麻辣烫更改为山西面馆；删除原 3.2.2 \\
     \hline
-	v5.4.1 & 2025.7.4 & 删除原3.4.7、3.6.4；更新3.8.4、3.8.14、3.8.15；新增3.8.16 \\
-	\hline
-	v6.0 & 2025.8.23 & 修正全文大量错误，删除无用图片，改为用一张总体图片代替。\\
-	\hline
+    v5.4.1 & 2025.7.4 & 删除原3.4.7、3.6.4；更新3.8.4、3.8.14、3.8.15；新增3.8.16 \\
+    \hline
+    v6.0 & 2025.8.23 & 修正全文大量错误，删除无用图片，改为用一张总体图片代替。\\
+    \hline
+    v7.0 & 2026.7.17 & 修正全文大量错误，改用ElegantBook排版，删除所有位置标注。\\
+    \hline
 \end{tabularx}
 
 \clearpage
